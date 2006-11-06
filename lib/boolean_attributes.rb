@@ -99,3 +99,7 @@ module PluginAWeek #:nodoc:
     end
   end
 end
+
+class ::Module
+  include PluginAWeek::CoreExtensions::Module::BooleanAttributes
+end
