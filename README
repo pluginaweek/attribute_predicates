@@ -1,4 +1,119 @@
-BooleanAttributes
-=================
+= boolean_attributes
 
-Description goes here
+boolean_attributes adds a shortcut for creating attribute-querying methods.
+
+== Resources
+
+Wiki
+
+* http://wiki.pluginaweek.org/Boolean_attributes
+
+Announcement
+
+* http://www.pluginaweek.org/
+
+Source
+
+* http://svn.pluginaweek.org/trunk/plugins/ruby/module/boolean_attributes
+
+Development
+
+* http://dev.pluginaweek.org/browser/trunk/plugins/ruby/module/boolean_attributes
+
+== Description
+
+If you use boolean attributes within your classes, and want to use the
+predicate-style methods (i.e. "def foo?; end"), then you have to define these
+yourself.  This is a repetitive task especially if you want to query attributes
+that may not necessarily contain just true/false.  For example, an attribute
+may contain 0, or the string "false".  In this case, you would need to do
+special checks to see whether or not the value is really false.
+
+boolean_attributes introduces 4 new methods that allow you to define these
+predicate-style methods:
+
+# battr
+# battr_reader
+# battr_writer
+# battr_accessor
+
+All of these shortcuts have the same interface and meaning as you would normally
+find with attr, attr_reader, attr_writer, and attr_accessor.
+
+=== battr
+
+This method takes a symbol (the name of the attribute) and an optional argument
+for whether or not the attribute is writeable.  For example,
+
+  module Mod
+    battr :is_okay, true
+  end
+
+is equivalent to:
+
+  module Mod
+    def is_okay
+      @is_okay
+    end
+    
+    def is_okay=(val)
+      @is_okay = value
+    end
+    
+    def is_okay?
+    end
+  end
+
+The implementation of the predicate method is left out for discussion in the
+==Boolean Values== section.
+
+=== battr_reader
+
+This method is equivalent to calling battr(symbol, false) on each symbol in
+turn.  For example,
+
+  module Mod
+    battr_reader :is_good, :is_bad
+  end
+  
+  Mod.instance_methods.sort   #=> ["is_bad", "is_bad?", "is_good", "is_good?"]
+
+=== battr_writer
+
+This method creates an accessor and predicate method for each symbol in turn.
+For example,
+
+  module Mod
+    battr_writer :is_good, :is_bad
+  end
+  
+  Mod.instance_methods.sort   #=> ["is_bad=", "is_bad?", "is_good=", "is_good?"]
+
+=== battr_accessor
+
+This method is equivalent to calling battr(symbol, true) on each symbol in
+turn.  For example,
+
+  module Mod
+    battr_accessor :is_good, :is_bad
+  end
+  
+  Mod.instance_methods.sort   #=> ["is_bad", "is_bad=", "is_bad?", "is_good", "is_good=", "is_good?"]
+
+== Boolean Values
+
+The predicate method has a slightly more complex implementation that might be
+expected.  It is built from how ActiveRecord 1.1.6 implemented querying
+attributes.  The following lists show which values will return false/true:
+
+For String, the following values return false:
+# "false"
+# "f"
+# "0"
+# nil
+
+For Integer, the following values return false:
+# 0
+# nil
+
+For all other types, the predicate will return true unless the value is nil.

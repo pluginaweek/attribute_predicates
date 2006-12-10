@@ -26,7 +26,6 @@ module PluginAWeek #:nodoc:
         #     def is_okay?
         #     end
         #   end
-        # 
         def battr(symbol, writable = false)
           attr(symbol, writable)
           battr_predicate(symbol)
@@ -35,11 +34,8 @@ module PluginAWeek #:nodoc:
         # Creates instance variables and corresponding methods that return the
         # value of each instance variable. Equivalent to calling battr(name)
         # on each name in turn.
-        # 
         def battr_reader(*symbols)
-          symbols.each do |symbol|
-            battr(symbol, false)
-          end
+          symbols.each {|symbol| battr(symbol, false)}
         end
         
         # Equivalent to calling battr(symbol, true) on each symbol in turn.
@@ -49,51 +45,40 @@ module PluginAWeek #:nodoc:
         #   end
         #   
         #   Mod.instance_methods.sort   #=> ["is_bad", "is_bad=", "is_bad?", "is_good", "is_good=", "is_good?"]
-        # 
         def battr_accessor(*symbols)
-          symbols.each do |symbol|
-            battr(symbol, true)
-          end
+          symbols.each {|symbol| battr(symbol, true)}
         end
         
         # Creates an accessor method to allow assignment to the attribute
         # aSymbol.id2name.
-        #
         def battr_writer(*symbols)
           symbols.each do |symbol|
-            class_eval(<<-EOS, __FILE__, __LINE__)
+            class_eval <<-end_eval
               def #{symbol}=(val)
                 @symbol = val
               end
-              battr_predicate(symbol)
-            EOS
+            end_eval
+            battr_predicate(symbol)
           end
         end
         
         private
         def battr_predicate(symbol) #:nodoc:
-          class_eval(<<-EOS, __FILE__, __LINE__)
+          class_eval <<-end_eval
             def #{symbol}?
-              attribute = instance_variable_get("@#{symbol}")
-              if attribute.kind_of?(Fixnum) && attribute == 0
-                false
-              elsif attribute.kind_of?(String) && attribute == '0'
-                false
-              elsif attribute.kind_of?(String) && attribute.empty?
-                false
-              elsif attribute.nil?
-                false
-              elsif attribute == false
-                false
-              elsif attribute == 'f'
-                false
-              elsif attribute == 'false'
-                false
+              if value = instance_variable_get("@#{symbol}")
+                if value.kind_of?(String)
+                  !value.empty? && !%w(false f 0).include?(value)
+                elsif value.kind_of?(Numeric)
+                  !value.zero?
+                else
+                  true
+                end
               else
-                true
+                false
               end
             end
-          EOS
+          end_eval
         end
       end
     end
