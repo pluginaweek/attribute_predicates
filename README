@@ -1,6 +1,7 @@
 = boolean_attributes
 
-boolean_attributes adds a shortcut for creating attribute-querying methods.
+boolean_attributes adds shortcuts for creating attribute-querying methods
+(battr, battr_reader, battr_writer, and battr_accessor).
 
 == Resources
 
@@ -10,7 +11,7 @@ Wiki
 
 Announcement
 
-* http://www.pluginaweek.org/
+* http://www.pluginaweek.org/2006/12/21/9-10-and-11-module-gets-decked-out-for-the-holidays/
 
 Source
 
