@@ -31,7 +31,7 @@ module PluginAWeek #:nodoc:
         def attr_predicate(symbol)
           class_eval <<-end_eval
             def #{symbol}?
-              !#{symbol}.blank?
+              !@#{symbol}.blank?
             end
           end_eval
         end
@@ -53,7 +53,7 @@ module PluginAWeek #:nodoc:
         def attr_predicate(symbol) 
           class_eval <<-end_eval
             def #{symbol}?
-              if value = #{symbol}
+              if value = @#{symbol}
                 if value.kind_of?(String)
                   !value.empty? && !%w(false f 0).include?(value)
                 elsif value.kind_of?(Numeric)
