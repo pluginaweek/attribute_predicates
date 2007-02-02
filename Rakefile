@@ -4,7 +4,7 @@ require 'rake/gempackagetask'
 require 'rake/contrib/sshpublisher'
 
 PKG_NAME           = 'boolean_attributes'
-PKG_VERSION        = '0.0.1'
+PKG_VERSION        = '0.0.2'
 PKG_FILE_NAME      = "#{PKG_NAME}-#{PKG_VERSION}"
 RUBY_FORGE_PROJECT = 'pluginaweek'
 
@@ -38,6 +38,7 @@ spec = Gem::Specification.new do |s|
   s.autorequire     = 'boolean_attributes'
   s.has_rdoc        = true
   s.test_files      = Dir['test/**/*_test.rb']
+  s.add_dependency  'active_record', '>= 1.2.0'
   
   s.author          = 'Aaron Pfeifer and Neil Abraham'
   s.email           = 'info@pluginaweek.org'
@@ -66,12 +67,10 @@ task :publish => [:pdoc, :release]
 desc 'Publish the release files to RubyForge.'
 task :release => [:gem, :package] do
   require 'rubyforge'
-
-  options = {'cookie_jar' => RubyForge::COOKIE_F}
-  options['password'] = ENV['RUBY_FORGE_PASSWORD'] if ENV['RUBY_FORGE_PASSWORD']
-  ruby_forge = RubyForge.new("./config.yml", options)
+  
+  ruby_forge = RubyForge.new
   ruby_forge.login
-
+  
   %w( gem tgz zip ).each do |ext|
     file = "pkg/#{PKG_FILE_NAME}.#{ext}"
     puts "Releasing #{File.basename(file)}..."
