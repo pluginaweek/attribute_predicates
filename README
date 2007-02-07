@@ -105,14 +105,14 @@ querying attributes.  The following lists show which values will
 return false/true:
 
 For String, the following values return false:
-# "false"
-# "f"
-# "0"
-# nil
+* "false"
+* "f"
+* "0"
+* nil
 
 For Integer, the following values return false:
-# 0
-# nil
+* 0
+* nil
 
 For all other types, the predicate will return true unless the value is nil.
 
