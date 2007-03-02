@@ -40,7 +40,7 @@ spec = Gem::Specification.new do |s|
   s.test_files      = Dir['test/**/*_test.rb']
   s.add_dependency  'active_record', '>= 1.2.0'
   
-  s.author          = 'Aaron Pfeifer and Neil Abraham'
+  s.author          = 'Aaron Pfeifer, Neil Abraham'
   s.email           = 'info@pluginaweek.org'
   s.homepage        = 'http://www.pluginaweek.org'
 end
