@@ -33,7 +33,7 @@ spec = Gem::Specification.new do |s|
   s.platform        = Gem::Platform::RUBY
   s.summary         = 'Adds automatic generation of predicate methods for attributes.'
   
-  s.files           = FileList['{lib,tasks,test}/**/*'].to_a + %w(init.rb MIT-LICENSE Rakefile README)
+  s.files           = FileList['{lib,test}/**/*'].to_a + %w(CHANGELOG init.rb MIT-LICENSE Rakefile README)
   s.require_path    = 'lib'
   s.autorequire     = 'boolean_attributes'
   s.has_rdoc        = true
