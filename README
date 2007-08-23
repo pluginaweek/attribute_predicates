@@ -6,6 +6,10 @@ attr_accessor.
 
 == Resources
 
+API
+
+* http://api.pluginaweek.org/boolean_attributes
+
 Wiki
 
 * http://wiki.pluginaweek.org/Boolean_attributes
@@ -39,7 +43,11 @@ non-standard truth accessor implementation (see below).
 All of these shortcuts have the same interface and meaning as you would normally
 find.
 
-=== attr
+== Usage
+
+=== Ruby Attributes
+
+==== attr
 
 This method takes a symbol (the name of the attribute) and an optional argument
 for whether or not the attribute is writeable.  For example,
@@ -64,7 +72,7 @@ is equivalent to:
     end
   end
 
-=== battr_reader
+==== attr_reader
 
 This method is equivalent to calling battr(symbol, false) on each symbol in
 turn.  For example,
@@ -75,7 +83,7 @@ turn.  For example,
   
   Mod.instance_methods.sort   #=> ["is_bad", "is_bad?", "is_good", "is_good?"]
 
-=== battr_writer
+==== attr_writer
 
 This method creates an accessor and predicate method for each symbol in turn.
 For example,
@@ -86,7 +94,7 @@ For example,
   
   Mod.instance_methods.sort   #=> ["is_bad=", "is_bad?", "is_good=", "is_good?"]
 
-=== attr_accessor
+==== attr_accessor
 
 This method is equivalent to calling attr(symbol, true) on each symbol in
 turn.  For example,
@@ -97,12 +105,11 @@ turn.  For example,
   
   Mod.instance_methods.sort   #=> ["is_bad", "is_bad=", "is_bad?", "is_good", "is_good=", "is_good?"]
 
-== ActiveRecord Attributes
+=== ActiveRecord Attributes
 
 The predicate method has a slightly more complex implementation for subclasses
-of ActiveRecord::Base.  It is built from how ActiveRecord 1.1.6 implemented
-querying attributes.  The following lists show which values will
-return false/true:
+of ActiveRecord::Base.  It is built from how ActiveRecord implemented querying
+attributes.  The following lists show which values will return false/true:
 
 For String, the following values return false:
 * "false"
@@ -115,6 +122,10 @@ For Integer, the following values return false:
 * nil
 
 For all other types, the predicate will return true unless the value is nil.
+
+== Dependencies
+
+This plugin does not depend on the presence of any other plugins.
 
 == References
 

@@ -72,10 +72,10 @@ module PluginAWeek #:nodoc:
   end
 end
 
-class ::Module
+::Module.class_eval do
   include PluginAWeek::CoreExtensions::Module::BooleanAttributes
 end
 
 ActiveRecord::Base.class_eval do
   extend PluginAWeek::CoreExtensions::ActiveRecord::BooleanAttributes
-end
+end if defined?(ActiveRecord)
