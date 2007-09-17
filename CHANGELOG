@@ -1,5 +1,7 @@
 *SVN*
 
+*0.0.3* (September 18th, 2007)
+
 * Remove gem dependency on activerecord
 
 * Convert dos newlines to unix newlines

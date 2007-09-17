@@ -1,8 +1,8 @@
 = boolean_attributes
 
-boolean_attributes adds automatic generation of predicate methods (truth
-accessors) when defining attributes using attr, attr_reader, attr_writer, and
-attr_accessor.
++boolean_attributes+ adds automatic generation of predicate methods (truth
+accessors) when defining attributes using +attr+, +attr_reader+, +attr_writer+, and
++attr_accessor+.
 
 == Resources
 
@@ -35,9 +35,9 @@ that may not necessarily contain just true/false.  For example, an attribute
 may contain 0, or the string "false".  In this case, you would need to do
 special checks to see whether or not the value is really false.
 
-boolean_attributes makes it easy by automatically generating predicate-style
-methods for all attributes that are created using attr, attr_reader, attr_writer,
-and attr_accessor.  In addition, there is support for ActiveRecord's
++boolean_attributes+ makes it easy by automatically generating predicate-style
+methods for all attributes that are created using +attr+, +attr_reader+, +attr_writer+,
+and +attr_accessor+.  In addition, there is support for ActiveRecord's
 non-standard truth accessor implementation (see below).
 
 All of these shortcuts have the same interface and meaning as you would normally
@@ -74,7 +74,7 @@ is equivalent to:
 
 ==== attr_reader
 
-This method is equivalent to calling battr(symbol, false) on each symbol in
+This method is equivalent to calling <tt>battr(symbol, false)</tt> on each symbol in
 turn.  For example,
 
   module Mod
@@ -96,7 +96,7 @@ For example,
 
 ==== attr_accessor
 
-This method is equivalent to calling attr(symbol, true) on each symbol in
+This method is equivalent to calling <tt>attr(symbol, true)</tt> on each symbol in
 turn.  For example,
 
   module Mod
@@ -129,6 +129,5 @@ This plugin does not depend on the presence of any other plugins.
 
 == References
 
-Thanks to the following people who helped set this plugin straight:
-* Yurii Rashkovskii - http://rashkovskii.com/articles/2007/01/04/boolean-attributes-in-ruby
-* Evan Weaver - http://blog.evanweaver.com/articles/2007/01/05/truth-accessors-in-rails
+* Yurii Rashkovskii - {Boolean Attributes in Ruby}[http://rashkovskii.com/articles/2007/01/04/boolean-attributes-in-ruby]
+* Evan Weaver - {truth accessors in rails}[http://blog.evanweaver.com/articles/2007/01/05/truth-accessors-in-rails]
