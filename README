@@ -6,25 +6,25 @@ accessors) when defining attributes using +attr+, +attr_reader+, +attr_writer+, 
 
 == Resources
 
-API
+Announcement
 
-* http://api.pluginaweek.org/boolean_attributes
+* http://www.pluginaweek.org/2007/01/04/9-roverhungry-roverroll_over-roverbad_dog
 
 Wiki
 
 * http://wiki.pluginaweek.org/Boolean_attributes
 
-Announcement
+API
 
-* http://www.pluginaweek.org/2007/01/04/9-roverhungry-roverroll_over-roverbad_dog
-
-Source
-
-* http://svn.pluginaweek.org/trunk/plugins/ruby/module/boolean_attributes
+* http://api.pluginaweek.org/boolean_attributes
 
 Development
 
 * http://dev.pluginaweek.org/browser/trunk/plugins/ruby/module/boolean_attributes
+
+Source
+
+* http://svn.pluginaweek.org/trunk/plugins/ruby/module/boolean_attributes
 
 == Description
 
