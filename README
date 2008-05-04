@@ -6,10 +6,6 @@ accessors) when defining attributes using +attr+, +attr_reader+, +attr_writer+, 
 
 == Resources
 
-Announcement
-
-* http://www.pluginaweek.org/2007/01/04/9-roverhungry-roverroll_over-roverbad_dog
-
 Wiki
 
 * http://wiki.pluginaweek.org/Boolean_attributes
@@ -20,11 +16,11 @@ API
 
 Development
 
-* http://dev.pluginaweek.org/browser/trunk/plugins/ruby/module/boolean_attributes
+* http://dev.pluginaweek.org/browser/trunk/boolean_attributes
 
 Source
 
-* http://svn.pluginaweek.org/trunk/plugins/ruby/module/boolean_attributes
+* http://svn.pluginaweek.org/trunk/boolean_attributes
 
 == Description
 
@@ -111,21 +107,23 @@ The predicate method has a slightly more complex implementation for subclasses
 of ActiveRecord::Base.  It is built from how ActiveRecord implemented querying
 attributes.  The following lists show which values will return false/true:
 
-For String, the following values return false:
-* "false"
-* "f"
-* "0"
-* nil
+For String, the following values return true:
+* "true"
+* "t"
 
-For Integer, the following values return false:
-* 0
-* nil
+For Integer, the following values return true:
+* 1
 
-For all other types, the predicate will return true unless the value is nil.
+For all other types, the predicate will return false.
+
+== Testing
+
+Before you can run any tests, the following gem must be installed:
+* plugin_test_helper[http://wiki.pluginaweek.org/Plugin_test_helper]
 
 == Dependencies
 
-This plugin does not depend on the presence of any other plugins.
+None.
 
 == References
 
