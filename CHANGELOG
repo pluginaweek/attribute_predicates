@@ -1,5 +1,9 @@
 *SVN*
 
+*0.0.5* (June 19th, 2008)
+
+* Avoid string evaluation for dynamic methods
+
 *0.0.4* (May 5th, 2008)
 
 * Support for Rails 2.1

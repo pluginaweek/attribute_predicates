@@ -8,12 +8,10 @@ module PluginAWeek #:nodoc:
         # 
         # For Integers, returns true when value is:
         # * 1
-        def attr_predicate(symbol) 
-          class_eval <<-end_eval
-            def #{symbol}?
-              ::ActiveRecord::ConnectionAdapters::Column.value_to_boolean(@#{symbol})
-            end
-          end_eval
+        def attr_predicate(symbol)
+          define_method("#{symbol}?") do
+            ::ActiveRecord::ConnectionAdapters::Column.value_to_boolean(instance_variable_get("@#{symbol}"))
+          end
         end
     end
   end

@@ -15,22 +15,18 @@ module PluginAWeek #:nodoc:
       end
       
       [:attr_reader, :attr_writer, :attr_accessor].each do |method|
-        eval <<-end_eval
-          def #{method}_with_predicates(*symbols)
-            #{method}_without_predicates(*symbols)
-            symbols.each {|symbol| attr_predicate(symbol)}
-          end
-        end_eval
+        define_method("#{method}_with_predicates") do |*symbols|
+          send("#{method}_without_predicates", *symbols)
+          symbols.each {|symbol| attr_predicate(symbol)}
+        end
       end
       
       private
         # Returns true if the specified variable is not blank, otherwise false
         def attr_predicate(symbol)
-          class_eval <<-end_eval
-            def #{symbol}?
-              !@#{symbol}.blank?
-            end
-          end_eval
+          define_method("#{symbol}?") do
+            !instance_variable_get("@#{symbol}").blank?
+          end
         end
     end
   end
