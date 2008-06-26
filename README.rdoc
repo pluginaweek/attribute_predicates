@@ -6,21 +6,21 @@ accessors) when defining attributes using +attr+, +attr_reader+, +attr_writer+, 
 
 == Resources
 
-Wiki
-
-* http://wiki.pluginaweek.org/Boolean_attributes
-
 API
 
 * http://api.pluginaweek.org/boolean_attributes
 
+Bugs
+
+* http://pluginaweek.lighthouseapp.com/projects/13267-boolean_attributes
+
 Development
 
-* http://dev.pluginaweek.org/browser/trunk/boolean_attributes
+* http://github.com/pluginaweek/boolean_attributes
 
 Source
 
-* http://svn.pluginaweek.org/trunk/boolean_attributes
+* git://github.com/pluginaweek/boolean_attributes.git
 
 == Description
 
@@ -119,7 +119,7 @@ For all other types, the predicate will return false.
 == Testing
 
 Before you can run any tests, the following gem must be installed:
-* plugin_test_helper[http://wiki.pluginaweek.org/Plugin_test_helper]
+* plugin_test_helper[http://github.com/pluginaweek/plugin_test_helper]
 
 To run against a specific version of Rails:
 
