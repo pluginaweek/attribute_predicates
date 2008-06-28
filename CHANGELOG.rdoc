@@ -1,25 +1,23 @@
-*SVN*
+== master
 
-*0.0.5* (June 19th, 2008)
+== 0.0.5 / 2008-06-19
 
 * Avoid string evaluation for dynamic methods
 
-*0.0.4* (May 5th, 2008)
+== 0.0.4 / 2008-05-05
 
 * Support for Rails 2.1
-
 * Update documentation
 
-*0.0.3* (September 18th, 2007)
+== 0.0.3 / 2007-09-18
 
 * Remove gem dependency on activerecord
-
 * Convert dos newlines to unix newlines
 
-*0.0.2* (February 2nd, 2007)
+== 0.0.2 / 2007-02-02
 
 * Released as a gem
 
-*0.0.1* (January 4th, 2007)
+== 0.0.1 / 2007-01-04
 
 * Initial release
