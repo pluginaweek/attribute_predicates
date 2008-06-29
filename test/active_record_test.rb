@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/test_helper'
 
-class ActiveRecordBooleanAttributesTest < Test::Unit::TestCase
+class ActiveRecordTest < Test::Unit::TestCase
   def setup
     @klass = Class.new(ActiveRecord::Base) do
       def initialize(value)
