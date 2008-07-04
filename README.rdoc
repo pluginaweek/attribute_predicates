@@ -70,7 +70,7 @@ is equivalent to:
 
 ==== attr_reader
 
-This method is equivalent to calling <tt>battr(symbol, false)</tt> on each symbol in
+This method is equivalent to calling <tt>attr(symbol, false)</tt> on each symbol in
 turn.  For example,
 
   module Mod
