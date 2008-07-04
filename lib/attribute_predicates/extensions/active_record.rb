@@ -1,5 +1,5 @@
 module PluginAWeek #:nodoc:
-  module BooleanAttributes
+  module AttributePredicates
     module ActiveRecord
       private
         # For Strings, returns true when value is:
@@ -18,5 +18,5 @@ module PluginAWeek #:nodoc:
 end
 
 ActiveRecord::Base.class_eval do
-  extend PluginAWeek::BooleanAttributes::ActiveRecord
+  extend PluginAWeek::AttributePredicates::ActiveRecord
 end if defined?(ActiveRecord)

@@ -1,5 +1,5 @@
 module PluginAWeek #:nodoc:
-  module BooleanAttributes
+  module AttributePredicates
     module Module
       def self.included(base) #:nodoc:
         base.class_eval do
@@ -33,5 +33,5 @@ module PluginAWeek #:nodoc:
 end
 
 ::Module.class_eval do
-  include PluginAWeek::BooleanAttributes::Module
+  include PluginAWeek::AttributePredicates::Module
 end

@@ -1,1 +1,1 @@
-require 'boolean_attributes'
+require 'attribute_predicates'

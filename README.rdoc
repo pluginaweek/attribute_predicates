@@ -1,6 +1,6 @@
-= boolean_attributes
+= attribute_predicates
 
-+boolean_attributes+ adds automatic generation of predicate methods (truth
++attribute_predicates+ adds automatic generation of predicate methods (truth
 accessors) when defining attributes using +attr+, +attr_reader+, +attr_writer+, and
 +attr_accessor+.
 
@@ -8,30 +8,30 @@ accessors) when defining attributes using +attr+, +attr_reader+, +attr_writer+, 
 
 API
 
-* http://api.pluginaweek.org/boolean_attributes
+* http://api.pluginaweek.org/attribute_predicates
 
 Bugs
 
-* http://pluginaweek.lighthouseapp.com/projects/13267-boolean_attributes
+* http://pluginaweek.lighthouseapp.com/projects/13777-attribute_predicates
 
 Development
 
-* http://github.com/pluginaweek/boolean_attributes
+* http://github.com/pluginaweek/attribute_predicates
 
 Source
 
-* git://github.com/pluginaweek/boolean_attributes.git
+* git://github.com/pluginaweek/attribute_predicates.git
 
 == Description
 
-If you use boolean attributes within your classes, and want to use the
+When you define attributes within your classes and want to use the
 predicate-style methods (i.e. "def foo?; end"), then you have to define these
 yourself.  This is a repetitive task especially if you want to query attributes
 that may not necessarily contain just true/false.  For example, an attribute
 may contain 0, or the string "false".  In this case, you would need to do
 special checks to see whether or not the value is really false.
 
-+boolean_attributes+ makes it easy by automatically generating predicate-style
++attribute_predicates+ makes it easy by automatically generating predicate-style
 methods for all attributes that are created using +attr+, +attr_reader+, +attr_writer+,
 and +attr_accessor+.  In addition, there is support for ActiveRecord's
 non-standard truth accessor implementation (see below).

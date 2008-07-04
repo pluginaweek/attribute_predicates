@@ -1,5 +1,9 @@
 == master
 
+== 0.1.0 / 2008-07-03
+
+* Rename to attribute_predicates
+
 == 0.0.5 / 2008-06-19
 
 * Avoid string evaluation for dynamic methods
