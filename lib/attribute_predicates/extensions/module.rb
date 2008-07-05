@@ -42,7 +42,7 @@ module PluginAWeek #:nodoc:
         #     attr :is_okay
         #   end
         #   
-        #   Mod.instance-methods.sort #=> ["is_okay", "is_okay?"]
+        #   Mod.instance-methods.sort # => ["is_okay", "is_okay?"]
         def attr_with_predicates(*args)
           attr_without_predicates(*args)
           attr_predicate(args.first)
