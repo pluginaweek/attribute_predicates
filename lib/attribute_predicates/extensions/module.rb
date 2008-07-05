@@ -14,19 +14,18 @@ module PluginAWeek #:nodoc:
       #     attr_accessor :value
       #   end
       #   
-      #   >> p = Person.new
-      #   >> p.value = false
-      #   >> p.value?
-      #   => false
-      #   >> p.value = true
-      #   >> p.value?
-      #   => true
-      #   >> p.value = []
-      #   >> p.value?
-      #   => false
-      #   >> p.value = [false]
-      #   >> p.value?
-      #   => true
+      #   p = Person.new
+      #   p.value = false
+      #   p.value?    # => false
+      #   
+      #   p.value = true
+      #   p.value?    # => true
+      #   
+      #   p.value = []
+      #   p.value?    # => false
+      #   
+      #   p.value = [false]
+      #   p.value?    # => true
       module Module
         def self.included(base) #:nodoc:
           base.class_eval do

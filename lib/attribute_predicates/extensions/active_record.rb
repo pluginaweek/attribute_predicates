@@ -15,22 +15,21 @@ module PluginAWeek #:nodoc:
       #     attr_accessor :value
       #   end
       #   
-      #   >> p = Person.new
-      #   >> p.value = false
-      #   >> p.value?
-      #   => false
-      #   >> p.value = 'false'
-      #   >> p.value?
-      #   => false
-      #   >> p.value = 'true'
-      #   >> p.value?
-      #   => true
-      #   >> p.value = 't'
-      #   >> p.value?
-      #   => true
-      #   >> p.value = 1
-      #   >> p.value?
-      #   => true
+      #   p = Person.new
+      #   p.value = false
+      #   p.value?    # => false
+      #   
+      #   p.value = 'false'
+      #   p.value?    # => false
+      #   
+      #   p.value = 'true'
+      #   p.value?    # => true
+      #   
+      #   p.value = 't'
+      #   p.value?    # => true
+      #   
+      #   p.value = 1
+      #   p.value?    # => true
       module ActiveRecord
         private
           # For Strings, returns true when value is:
