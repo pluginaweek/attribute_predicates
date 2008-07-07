@@ -29,8 +29,9 @@ module PluginAWeek #:nodoc:
       module Module
         def self.included(base) #:nodoc:
           base.class_eval do
-            [:attr, :attr_reader, :attr_writer, :attr_accessor].each do |method|
-              alias_method_chain method, :predicates
+            %w(attr attr_reader attr_writer attr_accessor).each do |method|
+              alias_method "#{method}_without_predicates", method
+              alias_method method, "#{method}_with_predicates"
             end
           end
         end
@@ -59,7 +60,15 @@ module PluginAWeek #:nodoc:
           # Returns true if the specified variable is not blank, otherwise false
           def attr_predicate(symbol)
             define_method("#{symbol}?") do
-              !instance_variable_get("@#{symbol}").blank?
+              value = instance_variable_get("@#{symbol}")
+              if value.respond_to?(:blank?)
+                # Use ActiveSupport's implementation
+                !value.blank?
+              elsif value.respond_to?(:empty?)
+                !value.empty?
+              else
+                !!value
+              end
             end
           end
       end

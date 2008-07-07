@@ -15,18 +15,18 @@ class ModuleAttrTest < Test::Unit::TestCase
   
   def test_should_create_predicate_for_readonly_attr
     @module.attr(:foo)
-    ['foo', 'foo?'].each do |method|
+    %w(foo foo?).each do |method|
       assert @module.instance_methods.include?(method), "#{method} does not exist"
     end
     
-    ['foo='].each do |method|
+    %w(foo=).each do |method|
       assert !@module.instance_methods.include?(method), "#{method} exists"
     end
   end
   
   def test_should_create_predicate_for_readwrite_attr
     @module.attr(:foo, true)
-    ['foo', 'foo=', 'foo?'].each do |method|
+    %w(foo foo= foo?).each do |method|
       assert @module.instance_methods.include?(method), "#{method} does not exist"
     end
   end
@@ -39,22 +39,22 @@ class ModuleAttrReaderTest < Test::Unit::TestCase
   
   def test_should_create_predicate
     @module.attr_reader(:foo)
-    ['foo', 'foo?'].each do |method|
+    %w(foo foo?).each do |method|
       assert @module.instance_methods.include?(method), "#{method} does not exist"
     end
     
-    ['foo='].each do |method|
+    %w(foo=).each do |method|
       assert !@module.instance_methods.include?(method), "#{method} exists"
     end
   end
   
   def test_should_create_predicate_for_multiple_attributes
     @module.attr_reader(:foo, :bar)
-    ['foo', 'foo?', 'bar', 'bar?'].each do |method|
+    %w(foo foo? bar bar?).each do |method|
       assert @module.instance_methods.include?(method), "#{method} does not exist"
     end
     
-    ['foo=', 'bar='].each do |method|
+    %w(foo= bar=).each do |method|
       assert !@module.instance_methods.include?(method), "#{method} exists"
     end
   end
@@ -67,14 +67,14 @@ class ModuleAttrAccessorTest < Test::Unit::TestCase
   
   def test_should_create_predicate
     @module.attr_accessor(:foo)
-    ['foo', 'foo=', 'foo?'].each do |method|
+    %w(foo foo= foo?).each do |method|
       assert @module.instance_methods.include?(method), "#{method} does not exist"
     end
   end
   
   def test_should_create_predicate_for_multiple_attributes
     @module.attr_accessor(:foo, :bar)
-    ['foo', 'foo=', 'foo?', 'bar', 'bar=', 'bar?'].each do |method|
+    %w(foo foo= foo? bar bar= bar?).each do |method|
       assert @module.instance_methods.include?(method), "#{method} does not exist"
     end
   end
@@ -87,22 +87,22 @@ class ModuleAttrWriterTest < Test::Unit::TestCase
   
   def test_should_create_predicate
     @module.attr_writer(:foo)
-    ['foo=', 'foo?'].each do |method|
+    %w(foo= foo?).each do |method|
       assert @module.instance_methods.include?(method), "#{method} does not exist"
     end
     
-    ['foo'].each do |method|
+    %w(foo).each do |method|
       assert !@module.instance_methods.include?(method), "#{method} exists"
     end
   end
   
   def test_should_create_predicate_for_multiple_attributes
     @module.attr_writer(:foo, :bar)
-    ['foo=', 'foo?', 'bar=', 'bar?'].each do |method|
+    %w(foo= foo? bar= bar?).each do |method|
       assert @module.instance_methods.include?(method), "#{method} does not exist"
     end
     
-    ['foo', 'bar'].each do |method|
+    %w(foo bar).each do |method|
       assert !@module.instance_methods.include?(method), "#{method} exists"
     end
   end
@@ -131,6 +131,7 @@ class ModuleTest < Test::Unit::TestCase
   def test_should_evaluate_false_values_for_predicate
     @klass.attr_accessor(:foo)
     
+    # *Note* ' ' is only false when ActiveSupport is being used
     [nil, '', ' ', {}, []].each do |value|
       assert_equal false, @klass.new(value).foo?, "#{value.inspect} is true"
     end
