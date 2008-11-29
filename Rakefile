@@ -5,7 +5,7 @@ require 'rake/contrib/sshpublisher'
 
 spec = Gem::Specification.new do |s|
   s.name              = 'attribute_predicates'
-  s.version           = '0.1.1'
+  s.version           = '0.1.2'
   s.platform          = Gem::Platform::RUBY
   s.summary           = 'Adds automatic generation of predicate methods for attributes.'
   

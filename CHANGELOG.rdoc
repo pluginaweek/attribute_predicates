@@ -1,5 +1,7 @@
 == master
 
+== 0.1.2 / 2008-11-29
+
 * Fix empty strings in ActiveRecord 2.2+ returning nil instead of false
 
 == 0.1.1 / 2008-07-06
@@ -16,7 +18,7 @@
 
 == 0.0.4 / 2008-05-05
 
-* Support for Rails 2.1
+* Support for ActiveRecord 2.1
 * Update documentation
 
 == 0.0.3 / 2007-09-18
