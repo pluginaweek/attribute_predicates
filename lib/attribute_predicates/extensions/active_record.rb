@@ -40,7 +40,7 @@ module PluginAWeek #:nodoc:
           # * 1
           def attr_predicate(symbol)
             define_method("#{symbol}?") do
-              ::ActiveRecord::ConnectionAdapters::Column.value_to_boolean(instance_variable_get("@#{symbol}"))
+              ::ActiveRecord::ConnectionAdapters::Column.value_to_boolean(instance_variable_get("@#{symbol}")) == true
             end
           end
       end

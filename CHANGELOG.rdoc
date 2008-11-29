@@ -1,5 +1,7 @@
 == master
 
+* Fix empty strings in ActiveRecord 2.2+ returning nil instead of false
+
 == 0.1.1 / 2008-07-06
 
 * Remove dependency on active_support for non-ActiveRecord predicates
