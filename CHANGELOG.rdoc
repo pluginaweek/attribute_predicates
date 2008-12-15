@@ -1,5 +1,7 @@
 == master
 
+* Remove the PluginAWeek namespace
+
 == 0.1.2 / 2008-11-29
 
 * Fix empty strings in ActiveRecord 2.2+ returning nil instead of false
