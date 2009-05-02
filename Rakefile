@@ -7,7 +7,8 @@ spec = Gem::Specification.new do |s|
   s.name              = 'attribute_predicates'
   s.version           = '0.2.0'
   s.platform          = Gem::Platform::RUBY
-  s.summary           = 'Adds automatic generation of predicate methods for attributes.'
+  s.summary           = 'Adds automatic generation of predicate methods for attributes'
+  s.description       = s.summary
   
   s.files             = FileList['{lib,test}/**/*'] + %w(CHANGELOG.rdoc init.rb LICENSE Rakefile README.rdoc)
   s.require_path      = 'lib'
