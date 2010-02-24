@@ -16,18 +16,18 @@ class ModuleAttrTest < Test::Unit::TestCase
   def test_should_create_predicate_for_readonly_attr
     @module.attr(:foo)
     %w(foo foo?).each do |method|
-      assert @module.instance_methods.include?(method), "#{method} does not exist"
+      assert @module.method_defined?(method), "#{method} does not exist"
     end
     
     %w(foo=).each do |method|
-      assert !@module.instance_methods.include?(method), "#{method} exists"
+      assert !@module.method_defined?(method), "#{method} exists"
     end
   end
   
   def test_should_create_predicate_for_readwrite_attr
     @module.attr(:foo, true)
     %w(foo foo= foo?).each do |method|
-      assert @module.instance_methods.include?(method), "#{method} does not exist"
+      assert @module.method_defined?(method), "#{method} does not exist"
     end
   end
 end
@@ -40,22 +40,22 @@ class ModuleAttrReaderTest < Test::Unit::TestCase
   def test_should_create_predicate
     @module.attr_reader(:foo)
     %w(foo foo?).each do |method|
-      assert @module.instance_methods.include?(method), "#{method} does not exist"
+      assert @module.method_defined?(method), "#{method} does not exist"
     end
     
     %w(foo=).each do |method|
-      assert !@module.instance_methods.include?(method), "#{method} exists"
+      assert !@module.method_defined?(method), "#{method} exists"
     end
   end
   
   def test_should_create_predicate_for_multiple_attributes
     @module.attr_reader(:foo, :bar)
     %w(foo foo? bar bar?).each do |method|
-      assert @module.instance_methods.include?(method), "#{method} does not exist"
+      assert @module.method_defined?(method), "#{method} does not exist"
     end
     
     %w(foo= bar=).each do |method|
-      assert !@module.instance_methods.include?(method), "#{method} exists"
+      assert !@module.method_defined?(method), "#{method} exists"
     end
   end
 end
@@ -68,14 +68,14 @@ class ModuleAttrAccessorTest < Test::Unit::TestCase
   def test_should_create_predicate
     @module.attr_accessor(:foo)
     %w(foo foo= foo?).each do |method|
-      assert @module.instance_methods.include?(method), "#{method} does not exist"
+      assert @module.method_defined?(method), "#{method} does not exist"
     end
   end
   
   def test_should_create_predicate_for_multiple_attributes
     @module.attr_accessor(:foo, :bar)
     %w(foo foo= foo? bar bar= bar?).each do |method|
-      assert @module.instance_methods.include?(method), "#{method} does not exist"
+      assert @module.method_defined?(method), "#{method} does not exist"
     end
   end
 end
@@ -88,22 +88,22 @@ class ModuleAttrWriterTest < Test::Unit::TestCase
   def test_should_create_predicate
     @module.attr_writer(:foo)
     %w(foo= foo?).each do |method|
-      assert @module.instance_methods.include?(method), "#{method} does not exist"
+      assert @module.method_defined?(method), "#{method} does not exist"
     end
     
     %w(foo).each do |method|
-      assert !@module.instance_methods.include?(method), "#{method} exists"
+      assert !@module.method_defined?(method), "#{method} exists"
     end
   end
   
   def test_should_create_predicate_for_multiple_attributes
     @module.attr_writer(:foo, :bar)
     %w(foo= foo? bar= bar?).each do |method|
-      assert @module.instance_methods.include?(method), "#{method} does not exist"
+      assert @module.method_defined?(method), "#{method} does not exist"
     end
     
     %w(foo bar).each do |method|
-      assert !@module.instance_methods.include?(method), "#{method} exists"
+      assert !@module.method_defined?(method), "#{method} exists"
     end
   end
 end
@@ -115,7 +115,7 @@ class ModuleAttrPredicateTest < Test::Unit::TestCase
   
   def test_should_create_predicate
     @module.attr_predicate(:foo)
-    assert @module.instance_methods.include?('foo?'), 'foo? does not exist'
+    assert @module.method_defined?('foo?'), 'foo? does not exist'
   end
 end
   
