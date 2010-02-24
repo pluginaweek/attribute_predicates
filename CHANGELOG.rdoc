@@ -1,5 +1,7 @@
 == master
 
+* Fix define_method usage causing all attributes to be private in Ruby 1.9+
+
 == 0.2.0 / 2008-12-14
 
 * Remove the PluginAWeek namespace

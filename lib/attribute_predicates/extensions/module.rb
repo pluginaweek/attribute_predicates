@@ -55,21 +55,21 @@ module AttributePredicates
         end
       end
       
-      private
-        # Returns true if the specified variable is not blank, otherwise false
-        def attr_predicate(symbol)
-          define_method("#{symbol}?") do
-            value = instance_variable_get("@#{symbol}")
-            if value.respond_to?(:blank?)
-              # Use ActiveSupport's implementation
-              !value.blank?
-            elsif value.respond_to?(:empty?)
-              !value.empty?
-            else
-              !!value
-            end
+      # Returns true if the specified variable is not blank, otherwise false
+      def attr_predicate(symbol)
+        define_method("#{symbol}?") do
+          value = instance_variable_get("@#{symbol}")
+          if value.respond_to?(:blank?)
+            # Use ActiveSupport's implementation
+            !value.blank?
+          elsif value.respond_to?(:empty?)
+            !value.empty?
+          else
+            !!value
           end
         end
+      end
+      private :attr_predicate
     end
   end
 end
