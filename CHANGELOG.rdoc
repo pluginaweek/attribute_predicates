@@ -1,5 +1,7 @@
 == master
 
+== 0.2.1 / 2010-03-07
+
 * Release gems via rake-gemcutter instead of rubyforge
 * Fix define_method usage causing all attributes to be private in Ruby 1.9+
 
