@@ -8,7 +8,7 @@ accessors) when defining attributes using +attr+, +attr_reader+, +attr_writer+, 
 
 API
 
-* http://api.pluginaweek.org/attribute_predicates
+* http://rdoc.info/projects/pluginaweek/attribute_predicates
 
 Bugs
 
