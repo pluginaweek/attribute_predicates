@@ -1,4 +1,4 @@
-= attribute_predicates
+= attribute_predicates http://travis-ci.org/pluginaweek/attribute_predicates.png
 
 +attribute_predicates+ adds automatic generation of predicate methods (truth
 accessors) when defining attributes using +attr+, +attr_reader+, +attr_writer+, and
@@ -17,6 +17,10 @@ Bugs
 Development
 
 * http://github.com/pluginaweek/attribute_predicates
+
+Testing
+
+* http://travis-ci.org/pluginaweek/attribute_predicates
 
 Source
 
