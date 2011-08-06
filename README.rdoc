@@ -12,7 +12,7 @@ API
 
 Bugs
 
-* http://pluginaweek.lighthouseapp.com/projects/13777-attribute_predicates
+* http://github.com/pluginaweek/attribute_predicates/issues
 
 Development
 
