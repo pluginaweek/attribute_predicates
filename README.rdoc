@@ -22,6 +22,10 @@ Source
 
 * git://github.com/pluginaweek/attribute_predicates.git
 
+Mailing List
+
+* http://groups.google.com/group/pluginaweek-talk
+
 == Description
 
 When you define attributes within your classes and want to use the
